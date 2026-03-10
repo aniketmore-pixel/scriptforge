@@ -1,142 +1,135 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Sparkles, Zap, Wand2, CheckCircle2, Video, PenTool, BarChart3, Heart } from "lucide-react";
+import { 
+  Sparkles, Zap, Wand2, CheckCircle2, Video, 
+  BarChart3, Heart, MousePointer2, Settings2, 
+  FileText, Users, GraduationCap, Briefcase,
+  ChevronDown
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"; // Assuming shadcn/ui
 import Navbar from "@/components/Navbar";
 
 const Landing = () => {
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden flex flex-col text-foreground font-sans">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-orange-500/30">
       <Navbar />
 
-      {/* SEO & Performance Background elements */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[600px] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(249,115,22,0.15),rgba(0,0,0,0))] pointer-events-none -z-10" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-orange-500/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+      {/* BACKGROUND ELEMENTS */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[800px] bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(249,115,22,0.15),rgba(0,0,0,0))]" />
+      </div>
 
-      <main className="flex-grow">
+      <main>
         {/* HERO SECTION */}
-        <section className="pt-32 pb-24 px-4 relative flex flex-col items-center justify-center text-center">
-          <div className="container mx-auto max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+        <section className="relative pt-24 md:pt-40 pb-16 px-6">
+          <div className="container mx-auto max-w-5xl text-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.5 }}
             >
-              {/* Free Forever Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-sm font-semibold mb-8 backdrop-blur-md">
-                <Heart className="w-3.5 h-3.5 fill-current" />
-                <span>100% Free & Unlimited Forever</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 text-xs md:text-sm font-bold mb-8 animate-pulse">
+                <Sparkles className="w-4 h-4" />
+                <span>V2.0 NOW LIVE: FASTER AI MODELS</span>
               </div>
 
-              <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.1] mb-6 tracking-tight">
-                Craft viral YouTube
-                <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-orange-500 to-amber-500">
-                  scripts in seconds
+              <h1 className="text-4xl md:text-6xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-8">
+                The Most Powerful <br className="hidden md:block" />
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-amber-500">
+                  AI YouTube Script Generator
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-                ScriptForge is a professional-grade scriptwriting engine for creators. 
-                No paywalls, no subscriptions, and no limits. Just high-retention scripts that 
-                help you dominate the YouTube algorithm.
+              <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
+                Generate high-retention, SEO-optimized YouTube scripts in seconds. 
+                Whether it's for documentaries, tutorials, or vlogs, ScriptForge turns 
+                simple ideas into viral-ready content.
               </p>
 
-              {/* ACTION AREA */}
-              <div className="max-w-md mx-auto">
-              <Link to="/generate" className="block w-full">
-  <Button className="w-full rounded-full h-16 md:h-20 text-lg md:text-xl font-bold bg-orange-500 hover:bg-orange-600 text-white shadow-[0_0_40px_-10px_rgba(249,115,22,0.5)] transition-all duration-300 hover:scale-[1.02] active:scale-95 border-none flex items-center justify-center gap-3">
-    <span>Start Generating — It's Free</span>
-    <Wand2 className="w-6 h-6" />
-  </Button>
-</Link>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link to="/generate" className="w-full sm:w-auto">
+                  <Button className="w-full sm:px-10 h-16 text-lg font-bold bg-orange-500 hover:bg-orange-600 shadow-xl shadow-orange-500/20 rounded-2xl">
+                    Create My Script Now — It's Free
+                  </Button>
+                </Link>
+              </div>
 
-                <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-8 text-sm text-muted-foreground font-medium">
-                  <div className="flex items-center gap-2 bg-secondary/50 px-3 py-1.5 rounded-full border border-border/50 shadow-sm">
-                    <CheckCircle2 className="w-4 h-4 text-orange-500" />
-                    <span>Unlimited Scripts</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-secondary/50 px-3 py-1.5 rounded-full border border-border/50 shadow-sm">
-                    <CheckCircle2 className="w-4 h-4 text-orange-500" />
-                    <span>No Login Required for First 3 Scripts</span>
-                  </div>
-                </div>
+              <div className="mt-12 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground font-medium">
+                <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-orange-500" /> Completely Free</span>
+                <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-orange-500" /> No Credit Card Required</span>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* FEATURES SECTION - Updated with relevant features */}
-        <section className="py-24 px-4 border-t border-border/30 relative bg-background/50">
+        {/* HOW IT WORKS (Inspired by QuillBot) */}
+        <section className="py-24 px-6 bg-secondary/30">
           <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4 tracking-tight">Built for modern creators</h2>
-              <p className="text-muted-foreground text-lg">Powerful enough for studios, simple enough for beginners.</p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Feature 1 */}
-              <article className="group bg-gradient-card rounded-3xl p-8 border border-border/50 hover:border-orange-500/50 transition-all duration-300">
-                <div className="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center mb-6 text-orange-500 group-hover:scale-110 transition-transform">
-                  <BarChart3 className="w-7 h-7" />
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">How ScriptForge Works</h2>
+            <div className="grid md:grid-cols-3 gap-12">
+              {[
+                { step: "01", icon: <MousePointer2 />, title: "Enter Your Idea", desc: "Type your video topic or keywords into the generator. Be as specific as you like." },
+                { step: "02", icon: <Settings2 />, title: "Tweak the Tone", desc: "Choose between Professional, Humorous, or Dramatic tones to match your brand." },
+                { step: "03", icon: <FileText />, title: "Get Your Script", desc: "Export your full-length script with SFX cues and teleprompter-ready formatting." }
+              ].map((item, i) => (
+                <div key={i} className="relative p-8 bg-background rounded-3xl border border-border/50 shadow-sm">
+                  <div className="text-5xl font-black text-orange-500/10 absolute top-4 right-6">{item.step}</div>
+                  <div className="w-12 h-12 bg-orange-500 text-white rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-orange-500/20">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="font-heading text-xl font-bold mb-3">Retention Optimized</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Every script uses viral pacing patterns, including open loops and high-stakes hooks to maximize your audience retention.
-                </p>
-              </article>
-
-              {/* Feature 2 */}
-              <article className="group bg-gradient-card rounded-3xl p-8 border border-border/50 hover:border-orange-500/50 transition-all duration-300">
-                <div className="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center mb-6 text-orange-500 group-hover:scale-110 transition-transform">
-                  <Zap className="w-7 h-7" />
-                </div>
-                <h3 className="font-heading text-xl font-bold mb-3">4000+ Word Capacity</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Don't settle for short summaries. Generate full-length, documentary-style scripts designed for 20-40 minute deep dives.
-                </p>
-              </article>
-
-              {/* Feature 3 */}
-              <article className="group bg-gradient-card rounded-3xl p-8 border border-border/50 hover:border-orange-500/50 transition-all duration-300">
-                <div className="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center mb-6 text-orange-500 group-hover:scale-110 transition-transform">
-                  <Video className="w-7 h-7" />
-                </div>
-                <h3 className="font-heading text-xl font-bold mb-3">Studio-Ready Formatting</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Get plain-text scripts formatted with visual cues, SFX tags, and host dialogue tags ready for your teleprompter.
-                </p>
-              </article>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* BOTTOM CTA SECTION */}
-        <section className="py-24 px-4 relative">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[300px] bg-orange-500/10 blur-[150px] rounded-full pointer-events-none -z-10" />
-          <div className="container mx-auto max-w-4xl">
-            <div className="bg-gradient-card border border-border/50 rounded-[2.5rem] p-12 text-center shadow-2xl relative overflow-hidden">
-              {/* Inner top glow decorative line */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent" />
-              
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-6 font-heading tracking-tight">Ready to post your next viral hit?</h2>
-              <p className="text-muted-foreground mb-10 text-lg max-w-xl mx-auto leading-relaxed">
-                Join the creators who are saving hundreds of hours on writing. Start using ScriptForge today, free forever.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
-                <Link to="/generate" className="w-full sm:w-auto">
-                  <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 h-auto text-base font-bold shadow-lg shadow-orange-500/25 border-none">
-                    Generate My Free Script
-                  </Button>
-                </Link>
-                <Link to="/about" className="w-full sm:w-auto">
-                  <Button variant="outline" className="w-full px-8 py-6 h-auto text-base font-bold border-border/50 hover:bg-white/30">
-                    Learn More
-                  </Button>
-                </Link>
-              </div>
+        {/* TARGET AUDIENCE GRID */}
+        <section className="py-24 px-6">
+          <div className="container mx-auto max-w-6xl text-center">
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-16 tracking-tight">Built for every creator</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: <Users />, title: "Content Creators", text: "Vloggers and hobbyists looking to post consistently without burnout." },
+                { icon: <Briefcase />, title: "Entrepreneurs", text: "Founders creating product explainers and high-converting video ads." },
+                { icon: <GraduationCap />, title: "Educators", text: "Teachers making complex topics easy to understand with structured lessons." }
+              ].map((card, i) => (
+                <div key={i} className="p-8 border border-border/50 rounded-[2rem] hover:border-orange-500 transition-colors text-left group">
+                  <div className="mb-4 text-orange-500 group-hover:scale-110 transition-transform">{card.icon}</div>
+                  <h3 className="text-xl font-bold mb-2">{card.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{card.text}</p>
+                </div>
+              ))}
             </div>
+          </div>
+        </section>
+
+        {/* FAQ SECTION (Huge for SEO) */}
+        <section className="py-24 px-6 bg-secondary/20">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-left font-semibold">Is the YouTube script generator really free?</AccordionTrigger>
+                <AccordionContent>
+                  Yes! ScriptForge offers a generous free tier that allows you to generate high-quality scripts without any hidden costs or subscriptions.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="text-left font-semibold">Can I use these scripts for commercial videos?</AccordionTrigger>
+                <AccordionContent>
+                  Absolutely. Any script generated is yours to own. You can use it for monetized YouTube channels, ads, or corporate presentations.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="text-left font-semibold">How do I get the best results from the AI?</AccordionTrigger>
+                <AccordionContent>
+                  The more detail you provide in your prompt, the better. Mention your target audience, the specific "hook" you want, and the overall goal of the video.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </section>
       </main>

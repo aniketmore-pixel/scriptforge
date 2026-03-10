@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Terms from "./pages/Terms";
+import TagExtractor from "./pages/Trends";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/upgrade" element={<Upgrade />} />
           <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/extract-tags" element={<TagExtractor />} />
         <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
